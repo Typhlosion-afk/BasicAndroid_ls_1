@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">DoDH2_Ls_1</string>
+    <string name="toast">Toast</string>
+    <string name="count">Count</string>
+    <string name="default_num">0</string>
+</resources>
