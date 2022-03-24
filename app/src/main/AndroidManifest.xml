@@ -12,6 +12,9 @@
         android:theme="@style/Theme.DoDH2_Ls_1"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".DataActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

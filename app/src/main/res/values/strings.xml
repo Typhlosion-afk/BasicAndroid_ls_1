@@ -3,4 +3,8 @@
     <string name="toast">Toast</string>
     <string name="count">Count</string>
     <string name="default_num">0</string>
+    <string name="viewmodel">Save Data by ViewModel</string>
+    <string name="click_me">click me</string>
+    <string name="start_activity">Start activity</string>
+    <string name="close">close</string>
 </resources>
