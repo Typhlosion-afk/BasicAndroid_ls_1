@@ -10,7 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Instrumentation;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,11 +26,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
 
     private int mCount = 0;
 
     private boolean isChecked = false;
+
+    private String lCode = "en";
 
     private TextView mTxtNum;
 
@@ -36,10 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
     private CheckBox mCxbClickMe;
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    private Button mBtnLanguage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setLocale(getLocaleCode());
+
         setContentView(R.layout.activity_main);
 
         initView();
@@ -53,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnToast = this.findViewById(R.id.btn_toast);
         mCxbClickMe = this.findViewById(R.id.cbx_click_me);
         mBtnStartAct = this.findViewById(R.id.btn_start_act);
+        mBtnLanguage = this.findViewById(R.id.btn_language);
     }
 
     private void setData() {
@@ -79,10 +94,61 @@ public class MainActivity extends AppCompatActivity {
             numberResultLauncher.launch(startDataIntent);
         });
 
+        mBtnLanguage.setOnClickListener(v -> {
+            if(lCode.equals("en")){
+                lCode = "vi";
+            }else {
+                lCode = "en";
+            }
+            saveLocaleCode(lCode);
+
+            restartApp();
+        });
+
+    }
+
+    private void restartApp(){
+        PackageManager packageManager = this.getPackageManager();
+        Intent intent = packageManager.getLaunchIntentForPackage(this.getPackageName());
+        ComponentName componentName = intent.getComponent();
+        Intent mainIntent = Intent.makeRestartActivityTask(componentName);
+        this.startActivity(mainIntent);
+        Runtime.getRuntime().exit(0);
+    }
+
+    private void setLocale(String languageCode){
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = this.getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
     private String getStrNum() {
         return "" + mCount;
+    }
+
+    private String getLocaleCode(){
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        lCode = shared.getString(getString(R.string.language_pre_key), "en");
+
+        Log.d("TAG", "getLocaleCode: " + lCode);
+        return lCode;
+    }
+
+    @SuppressLint("ApplySharedPref")
+    private void saveLocaleCode(String code){
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putString(getString(R.string.language_pre_key), code);
+        editor.commit();
+        Log.d("TAG", "saveLocaleCode: saved " + lCode);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

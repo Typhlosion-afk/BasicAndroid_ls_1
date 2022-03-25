@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">DoDH2_Ls_1</string>
     <string name="toast">Toast</string>
     <string name="count">Count</string>
@@ -8,6 +9,4 @@
     <string name="start_activity">Start activity</string>
     <string name="close">close</string>
     <string name="language">Tiếng Việt</string>
-    <string name="pre_key" tools:ignore="MissingTranslation">shared_key</string>
-    <string name="language_pre_key" tools:ignore="MissingTranslation">language_pre_key</string>
 </resources>

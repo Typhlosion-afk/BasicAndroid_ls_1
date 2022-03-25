@@ -69,5 +69,16 @@
             android:textColor="@color/white"
             android:textSize="24sp" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_language"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="12dp"
+            android:background="@color/blue"
+            android:text="@string/language"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
     </LinearLayout>
 </ScrollView>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DoDH2_Ls_1</string>
+    <string name="toast">Thông báo</string>
+    <string name="count">Tăng số</string>
+    <string name="default_num">0</string>
+    <string name="viewmodel">Save Data by ViewModel</string>
+    <string name="click_me">Chạm vào tôi</string>
+    <string name="start_activity">Mở Activity số 2</string>
+    <string name="close">Đóng</string>
+    <string name="language">English</string>
+</resources>
