@@ -1,15 +1,12 @@
 package com.dore.dodh2_ls_1;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.annotation.SuppressLint;
-import android.app.Instrumentation;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -19,10 +16,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String lCode = "en";
 
+    private String strSettingTheme = "purple";
+
     private TextView mTxtNum;
 
     private Button mBtnToast;
@@ -48,17 +45,30 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mBtnLanguage;
 
+    private Button mBtnTheme;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        setAppTheme();
         setLocale(getLocaleCode());
 
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initView();
         setData();
         handleAction();
+    }
+
+    private void setAppTheme() {
+        if(getStrSettingTheme().equals("purple")){
+            setTheme(R.style.ThemePurple);
+        }else{
+            setTheme(R.style.ThemeGreen);
+        }
     }
 
     private void initView() {
@@ -68,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mCxbClickMe = this.findViewById(R.id.cbx_click_me);
         mBtnStartAct = this.findViewById(R.id.btn_start_act);
         mBtnLanguage = this.findViewById(R.id.btn_language);
+        mBtnTheme = this.findViewById(R.id.btn_theme);
     }
 
     private void setData() {
@@ -105,6 +116,18 @@ public class MainActivity extends AppCompatActivity {
             restartApp();
         });
 
+        mBtnTheme.setOnClickListener(v -> {
+            if(strSettingTheme.equals("purple")){
+                strSettingTheme = "green";
+            }else {
+                strSettingTheme = "purple";
+            }
+
+            saveThemeCode(strSettingTheme);
+
+            restartApp();
+        });
+
     }
 
     private void restartApp(){
@@ -133,8 +156,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
         lCode = shared.getString(getString(R.string.language_pre_key), "en");
 
-        Log.d("TAG", "getLocaleCode: " + lCode);
         return lCode;
+    }
+
+    private String getStrSettingTheme(){
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        strSettingTheme = shared.getString(getString(R.string.theme_pre_key), "purple");
+
+        return strSettingTheme;
     }
 
     @SuppressLint("ApplySharedPref")
@@ -144,6 +173,14 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(getString(R.string.language_pre_key), code);
         editor.commit();
         Log.d("TAG", "saveLocaleCode: saved " + lCode);
+    }
+
+    @SuppressLint("ApplySharedPref")
+    private void saveThemeCode(String theme){
+        SharedPreferences shared = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = shared.edit();
+        editor.putString(getString(R.string.theme_pre_key), theme);
+        editor.commit();
     }
 
     @Override

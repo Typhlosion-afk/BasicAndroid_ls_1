@@ -10,4 +10,6 @@
     <string name="language">Tiếng Việt</string>
     <string name="pre_key" tools:ignore="MissingTranslation">shared_key</string>
     <string name="language_pre_key" tools:ignore="MissingTranslation">language_pre_key</string>
+    <string name="change_theme">Change theme</string>
+    <string name="theme_pre_key">theme_pre_key</string>
 </resources>

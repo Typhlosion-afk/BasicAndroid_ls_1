@@ -9,4 +9,5 @@
     <string name="start_activity">Mở Activity số 2</string>
     <string name="close">Đóng</string>
     <string name="language">English</string>
+    <string name="change_theme">Đổi giao diện</string>
 </resources>

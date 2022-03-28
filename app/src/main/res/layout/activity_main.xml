@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -16,22 +15,20 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_count"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:background="@color/blue"
-            android:text="@string/count"
             android:textColor="@color/white"
+            android:text="@string/count"
             android:textSize="24sp" />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_toast"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:background="@color/blue"
-            android:text="@string/toast"
             android:textColor="@color/white"
+            android:text="@string/toast"
             android:textSize="24sp" />
 
 
@@ -40,10 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="12dp"
-            android:background="@color/yellow"
             android:gravity="center"
             android:text="@string/default_num"
-            android:textColor="@color/blue"
             android:textSize="100sp" />
 
         <CheckBox
@@ -61,9 +56,8 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_start_act"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="12dp"
-            android:background="@color/blue"
             android:text="@string/start_activity"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -72,10 +66,20 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_language"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:text="@string/language"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_theme"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="12dp"
             android:background="@color/blue"
-            android:text="@string/language"
+            android:text="@string/change_theme"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="24sp" />
