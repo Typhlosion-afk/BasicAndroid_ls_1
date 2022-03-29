@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16" />
         <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/drawable/button_background.xml" value="0.33055555555555555" />
+        <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/layout/activity_ex3.xml" value="0.26875" />
         <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/layout/activity_send_data.xml" value="0.24728260869565216" />
         <entry key="..\:/Users/HaiDo/AndroidStudioProjects/DoDH2_Ls_1/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11018518518518519" />

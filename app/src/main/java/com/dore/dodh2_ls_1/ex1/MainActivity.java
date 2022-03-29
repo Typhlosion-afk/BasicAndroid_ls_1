@@ -1,4 +1,4 @@
-package com.dore.dodh2_ls_1;
+package com.dore.dodh2_ls_1.ex1;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -20,6 +20,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dore.dodh2_ls_1.R;
 
 import java.util.Locale;
 
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         setAppTheme();
         setLocale(getLocaleCode());
@@ -164,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         strSettingTheme = shared.getString(getString(R.string.theme_pre_key), "purple");
 
         return strSettingTheme;
+
     }
 
     @SuppressLint("ApplySharedPref")

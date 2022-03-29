@@ -1,4 +1,4 @@
-package com.dore.dodh2_ls_1;
+package com.dore.dodh2_ls_1.ex1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.dore.dodh2_ls_1.R;
 
 public class DataActivity extends AppCompatActivity {
 

@@ -17,8 +17,6 @@
         <item name="textBackground">@color/green</item>
         <item name="colorButtonNormal">@color/purple_500</item>
         <item name="android:gravity">center</item>
-
-
     </style>
 
     <style name="ThemeGreen" parent="Theme.MaterialComponents.Light.DarkActionBar">

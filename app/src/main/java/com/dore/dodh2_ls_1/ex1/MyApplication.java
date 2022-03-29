@@ -1,4 +1,4 @@
-package com.dore.dodh2_ls_1;
+package com.dore.dodh2_ls_1.ex1;
 
 import android.app.Application;
 
