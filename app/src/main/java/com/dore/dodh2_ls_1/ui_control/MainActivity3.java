@@ -6,10 +6,12 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dore.dodh2_ls_1.R;
 
@@ -25,6 +27,8 @@ public class MainActivity3 extends AppCompatActivity {
 
     private TextView textView;
 
+    private Button btnClickMe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +37,7 @@ public class MainActivity3 extends AppCompatActivity {
         initView();
         handleSwitch();
         handleSeekbar();
+        handleClickMe();
 
     }
 
@@ -41,6 +46,7 @@ public class MainActivity3 extends AppCompatActivity {
         img = this.findViewById(R.id.image_view);
         seekBar = this.findViewById(R.id.seek_bar);
         textView = this.findViewById(R.id.text_percent);
+        btnClickMe = this.findViewById(R.id.btn_click);
 
         setTextPercent(seekBar.getProgress());
         setWifiState(mSwitch.isChecked());
@@ -63,6 +69,21 @@ public class MainActivity3 extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void handleClickMe(){
+        btnClickMe.setOnClickListener(v -> {
+            Log.d("TAG", "Clicked");
+            Toast.makeText(MainActivity3.this, "Clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        btnClickMe.setOnLongClickListener(v -> {
+            Log.d("TAG", "Long Clicked");
+            Toast.makeText(MainActivity3.this, "Long Clicked", Toast.LENGTH_SHORT).show();
+
+            return true;
+        });
+
     }
 
     private void setTextPercent(int per){
