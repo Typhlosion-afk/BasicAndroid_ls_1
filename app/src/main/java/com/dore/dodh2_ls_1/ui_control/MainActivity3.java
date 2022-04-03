@@ -80,7 +80,6 @@ public class MainActivity3 extends AppCompatActivity {
         btnClickMe.setOnLongClickListener(v -> {
             Log.d("TAG", "Long Clicked");
             Toast.makeText(MainActivity3.this, "Long Clicked", Toast.LENGTH_SHORT).show();
-
             return true;
         });
 
